@@ -19,4 +19,9 @@ def answer(message):
 		spaceship_id, spaceship_name, spaceship_type, spaceship_hold_capacity, spaceship_attack, spaceship_defence = spaceship
 		bot.reply_to(message, f"Character:\n\nID: {id}\nName: {name}\nBalance: {balance}\n\nSpaceship:\n\nName: {spaceship_name}\nType: {spaceship_type}\nHold Capacity: {spaceship_hold_capacity}\nAttack: {spaceship_attack}\nDefence: {spaceship_defence}")
 
+	if message.text == "Удалить":
+		db = Database_Manager("database.db")
+		db.delete_user(message.from_user.id)
+		bot.reply_to(message, "Обнулил")
+		
 bot.infinity_polling()
