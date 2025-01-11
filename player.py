@@ -1,9 +1,9 @@
 class Player:
 
     def __init__(self, user_id, name, balance, spaceship):
-    	self._user_id = user_id
-    	self._name = name
-    	self._balance = balance
+        self._user_id = user_id
+        self._name = name
+        self._balance = balance
         self._spaceship = spaceship
 
     def getId(self):
