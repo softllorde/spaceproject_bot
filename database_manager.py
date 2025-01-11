@@ -18,9 +18,7 @@ class Database_Manager:
 		if not self.checkUserInDataBase(id):
 			query = "INSERT INTO players (id, name) VALUES (?, ?)"
 			self.cursor.execute(query, (id, name))
-			spaceship = self.cursor.execute("SELECT * FROM spaceships WHERE id = 1").fetchone()[0]
-			spaceship_id, spaceship_name, spaceship_type, spaceship_hold_capacity, spaceship_attack, spaceship_defence = spaceship
-			self.cursor.execute("INSERT INTO player_spaceships (player_id, spaceship_id, spaceship_attack, spaceship_defence, spaceship_hold_capacity) VALUES(?, ?, ?, ?, ?)")
+			self.cursor.execute("INSERT INTO player_spaceships (player_id, 1, 1, 1, 5) VALUES(?, ?, ?, ?, ?)")
 			self.conn.commit()
 			result = "Успешно зарегестрирован! Напиши /help и узнай команды бота"
 		else:
@@ -50,7 +48,7 @@ class Database_Manager:
 		self.cursor.execute("SELECT * FROM player_spaceships WHERE player_id=?", (id,))
 		spaceship = self.cursor.fetchone()
 		if spaceship:
-			id,name,type,hold_capacity,attack,defence = spaceship
+			spaceship_id,name,type,hold_capacity,attack,defence = spaceship
 		else:
 			return None
 
