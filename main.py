@@ -16,7 +16,7 @@ def answer(message):
 		player_data = db.get_player_info(message.from_user.id)
 		id, name, balance, spaceship_id = player_data
 		spaceship = db.get_player_spaceship(message.from_user.id)
-		spaceship_id, spaceship_name, spaceship_type, spaceship_hold_capacity, spaceship_attack, spaceship_defence = spaceship
+		player_id, spaceship_id, spaceship_name, spaceship_type, spaceship_attack, spaceship_defence, spaceship_hold_capacity = spaceship
 		bot.reply_to(message, f"Character:\n\nID: {id}\nName: {name}\nBalance: {balance}\n\nSpaceship:\n\nName: {spaceship_name}\nType: {spaceship_type}\nHold Capacity: {spaceship_hold_capacity}\nAttack: {spaceship_attack}\nDefence: {spaceship_defence}")
 
 	if message.text == "Удалить":

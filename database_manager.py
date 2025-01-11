@@ -48,7 +48,7 @@ class Database_Manager:
 		self.cursor.execute("SELECT * FROM player_spaceships WHERE player_id=?", (id,))
 		spaceship = self.cursor.fetchone()
 		if spaceship:
-			spaceship_id,name,type,hold_capacity,attack,defence = spaceship
+			player_id,spaceship_id,name,type,attack,defence,hold_capacity = spaceship
 		else:
 			return None
 
